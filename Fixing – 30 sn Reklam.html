@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fixing – 30 sn Reklam</title>
+<style>
+:root{--bg:#141416;--surf:rgba(255,255,255,.06);--bd:rgba(255,255,255,.12);--tx:#ececf0;--mut:rgba(236,236,240,.6);--ac:#8ab4f8;--ease:cubic-bezier(.2,.8,.2,1);color-scheme:dark}
+@media(prefers-color-scheme:light){body{background:#0b0b0d}}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b0b0d;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+body{display:grid;place-items:center;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+#stage{position:relative;width:min(100vw,calc(100vh*16/9));aspect-ratio:16/9;container-type:size;overflow:hidden;background:var(--bg);color:var(--tx);transition:background .6s,color .6s}
+#stage.light{--bg:#f4f5f7;--surf:rgba(255,255,255,.85);--bd:rgba(0,0,0,.12);--tx:#1f2024;--mut:rgba(31,32,36,.62)}
+.blob{position:absolute;border-radius:50%;filter:blur(8cqw);opacity:.35;background:var(--ac);transition:background 1s}
+.b1{width:40cqw;height:40cqw;left:-8cqw;top:-12cqw;animation:f1 9s ease-in-out infinite alternate}
+.b2{width:34cqw;height:34cqw;right:-6cqw;bottom:-14cqw;animation:f2 11s ease-in-out infinite alternate;opacity:.25}
+@keyframes f1{to{transform:translate(18cqw,10cqw) scale(1.2)}}
+@keyframes f2{to{transform:translate(-16cqw,-8cqw) scale(1.3)}}
+.scn{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqw;opacity:0;transform:scale(.96);transition:opacity .5s,transform .7s var(--ease);pointer-events:none}
+.scn.on{opacity:1;transform:none}
+.a{opacity:0}
+.scn.on .a{animation:rise .8s var(--ease) var(--d,0s) both}
+@keyframes rise{from{opacity:0;transform:translateY(3cqw) scale(.97)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}60%{transform:scale(1.12)}to{opacity:1;transform:none}}
+h2{font-size:4.2cqw;font-weight:600;letter-spacing:-.02em;text-align:center;line-height:1.15}
+h2 em{font-style:normal;color:var(--ac);transition:color .5s}
+.logo{font-size:7cqw;font-weight:200;letter-spacing:.32em;padding-left:.32em}
+.scn.on .logo{animation:lg 2.2s var(--ease) both,sh 3s linear 2s infinite}
+@keyframes lg{from{opacity:0;letter-spacing:1.2em;filter:blur(1.5cqw)}to{opacity:1;letter-spacing:.32em;filter:none}}
+.tag{font-size:2.2cqw;color:var(--mut)}
+.bar{width:54cqw;height:6.4cqw;border-radius:4cqw;background:var(--surf);border:1px solid var(--ac);box-shadow:0 0 0 .6cqw color-mix(in srgb,var(--ac) 28%,transparent),0 2cqw 5cqw rgba(0,0,0,.25);display:flex;align-items:center;gap:1.6cqw;padding:0 3cqw;font-size:2.3cqw;backdrop-filter:blur(14px)}
+.bar svg{width:2.4cqw;height:2.4cqw;color:var(--ac);flex-shrink:0}
+.caret{display:inline-block;width:.2cqw;height:2.4cqw;background:var(--ac);margin-left:.3cqw;vertical-align:middle;animation:bk 1s steps(1) infinite}
+@keyframes bk{50%{opacity:0}}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:2cqw;padding:2cqw 2.4cqw;backdrop-filter:blur(14px)}
+.res{width:54cqw;display:flex;flex-direction:column;gap:1.2cqw}
+.res .card{padding:1.3cqw 2cqw}
+.u{font-size:1.3cqw;color:var(--mut)}
+.t{font-size:2.1cqw;color:var(--ac);margin:.2cqw 0;transition:color .5s}
+.d{font-size:1.5cqw;color:var(--mut)}
+.badge{display:inline-block;background:var(--ac);color:#111;font-size:1.1cqw;font-weight:700;padding:.3cqw 1cqw;border-radius:2cqw;margin-bottom:.8cqw;transition:background .5s}
+.two{display:flex;gap:2.4cqw;align-items:stretch}
+.two .card{width:34cqw;font-size:1.7cqw;line-height:1.6;min-height:16cqw}
+.wt{font-size:2.3cqw;font-weight:600;margin-bottom:.6cqw}
+.sec{display:flex;gap:2cqw}
+.sec .card{width:24cqw;text-align:left}
+.sec .s{display:flex;align-items:center;gap:.8cqw;font-weight:700;font-size:1.8cqw;margin-bottom:.8cqw}
+.sec svg{width:2.6cqw;height:2.6cqw}
+.g{border-color:#4ade80!important}.g .s{color:#4ade80}
+.y{border-color:#facc15!important}.y .s{color:#facc15}
+.r{border-color:#f87171!important}.r .s{color:#f87171}
+.ok{font-size:1.1cqw;border:1px solid #4ade80;color:#4ade80;border-radius:2cqw;padding:.2cqw .8cqw;margin-left:auto}
+.scn.on .sec .card:nth-child(3){animation:rise .8s var(--ease) 1.8s both,shake .6s 3.2s}
+@keyframes shake{20%,60%{transform:translateX(-.8cqw)}40%,80%{transform:translateX(.8cqw)}}
+.sw{display:flex;align-items:center;gap:2cqw}
+.tog{width:7cqw;height:3.8cqw;border-radius:2cqw;background:var(--ac);position:relative;transition:background .5s}
+.tog::after{content:"";position:absolute;top:.5cqw;left:.5cqw;width:2.8cqw;height:2.8cqw;border-radius:50%;background:#111;transition:transform .5s var(--ease)}
+#stage.light .tog::after{transform:translateX(3.2cqw)}
+.dots{display:flex;gap:1.6cqw}
+.dots i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--c);opacity:.5;transition:transform .4s var(--ease),opacity .4s}
+.dots i.on{transform:scale(1.35);opacity:1;box-shadow:0 0 0 .4cqw var(--bg),0 0 0 .7cqw var(--tx)}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw}
+.app{display:flex;flex-direction:column;align-items:center;gap:1cqw;font-size:1.6cqw}
+.app u{width:9cqw;height:9cqw;border-radius:2.4cqw;background:var(--surf);border:1px solid var(--bd);display:grid;place-items:center;font-size:4cqw;text-decoration:none;color:var(--ac);transition:color .5s}
+.scn.on .app{animation:pop .7s var(--ease) var(--d) both}
+.scn.on .app u{animation:flt 3s ease-in-out var(--d) infinite alternate}
+@keyframes flt{to{transform:translateY(-.8cqw)}}
+.cta{margin-top:1cqw;font-size:2.4cqw;padding:1.2cqw 3.6cqw;border-radius:4cqw;background:var(--ac);color:#111;font-weight:700}
+.scn.on .cta{animation:rise .8s var(--ease) 2.2s both,pulse 1.6s 3s infinite}
+@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 0 1.4cqw color-mix(in srgb,var(--ac) 25%,transparent)}}
+.ring{position:absolute;left:50%;top:50%;width:20cqw;height:20cqw;margin:-10cqw 0 0 -10cqw;border:.2cqw solid var(--ac);border-radius:50%;opacity:0}
+.scn.on .ring{animation:rg 3s ease-out var(--d,0s) infinite}
+@keyframes rg{0%{transform:scale(.3);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+.chip{position:absolute;padding:.7cqw 1.6cqw;border-radius:3cqw;background:var(--surf);border:1px solid var(--bd);font-size:1.5cqw;color:var(--tx);backdrop-filter:blur(10px);opacity:0;white-space:nowrap}
+.scn.on .chip{animation:cin .8s var(--ease) var(--d) both,bob 2.6s ease-in-out calc(var(--d) + .8s) infinite alternate}
+@keyframes cin{from{opacity:0;transform:translateY(4cqw) scale(.8)}to{opacity:1;transform:none}}
+@keyframes bob{from{opacity:1;transform:none}to{opacity:1;transform:translateY(-1.4cqw)}}
+.orb{position:absolute;left:50%;top:50%;width:70cqw;height:70cqw;margin:-35cqw 0 0 -35cqw;border:.15cqw dashed var(--ac);border-radius:50%;opacity:.2;animation:sp 40s linear infinite;transition:border-color .5s}
+.orb.o2{width:48cqw;height:48cqw;margin:-24cqw 0 0 -24cqw;animation-direction:reverse;animation-duration:26s;opacity:.16}
+@keyframes sp{to{transform:rotate(360deg)}}
+.tick{position:absolute;bottom:2.2cqw;left:0;white-space:nowrap;font-size:1.3cqw;letter-spacing:.5em;color:var(--mut);opacity:.45;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+#cfw{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.cf{position:absolute;top:-4cqw;width:1cqw;height:1.6cqw;background:var(--c);opacity:0}
+.scn.on .cf{animation:cfl 3s linear var(--d) infinite}
+@keyframes cfl{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:1;transform:translateY(62cqw) rotate(720deg)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 transparent}50%{box-shadow:0 0 3cqw color-mix(in srgb,var(--ac) 38%,transparent)}}
+.scn.on .card{animation-duration:.8s,2.4s;animation-iteration-count:1,infinite;animation-delay:var(--d,0s),calc(var(--d,0s) + .8s)}
+.sl{position:absolute;height:.35cqw;width:30cqw;border-radius:1cqw;background:linear-gradient(90deg,transparent,var(--ac));left:-35cqw;opacity:.8}
+.scn.on .sl{animation:zm 1s linear var(--d) infinite}
+@keyframes zm{to{left:110cqw}}
+.big{font-size:12cqw;font-weight:200;color:var(--ac);letter-spacing:-.02em;transition:color .5s}
+#pc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.scn.on .logo{background:linear-gradient(100deg,var(--tx) 40%,var(--ac) 50%,var(--tx) 60%) 100% 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes sh{to{background-position:-100% 0}}
+.scn.on .card{animation-name:rise,glow}
+.lg{width:14cqw;height:auto;filter:drop-shadow(0 0 2cqw rgba(143,169,226,.5))}
+.scn.on .lg path{transform-box:fill-box;transform-origin:center;animation:pin .9s var(--ease) calc(var(--i)*.16s) both}
+@keyframes pin{from{opacity:0;transform:translate(0,4cqw) scale(.5) rotate(-12deg)}to{opacity:1;transform:none}}
+.scn.on .lg{animation:lgf 4s ease-in-out 1.4s infinite alternate}
+@keyframes lgf{to{transform:translateY(-1cqw);filter:drop-shadow(0 0 3.4cqw rgba(143,169,226,.85))}}
+.scn.row{flex-direction:row;gap:7cqw;padding-right:12cqw}
+.lt{display:flex;flex-direction:column;gap:2cqw;align-items:flex-start;width:27cqw}
+.phw{position:relative;perspective:120cqw}
+.phone{width:21.5cqw;height:46cqw;border-radius:3.4cqw;background:#0a0a0c;border:.5cqw solid #2a2a30;box-shadow:0 0 0 .15cqw #555,0 4cqw 10cqw rgba(0,0,0,.6),0 0 8cqw color-mix(in srgb,var(--ac) 35%,transparent);position:relative;overflow:hidden;opacity:0}
+.scn.on .phone{animation:ph 1.4s var(--ease) .2s both,phf 5s ease-in-out 1.6s infinite alternate}
+@keyframes ph{from{opacity:0;transform:translateY(20cqw) rotateY(-60deg) rotateX(20deg) scale(.7)}to{opacity:1;transform:rotateY(-14deg) rotateX(6deg)}}
+@keyframes phf{from{opacity:1;transform:rotateY(-14deg) rotateX(6deg)}to{opacity:1;transform:rotateY(10deg) rotateX(-3deg) translateY(-1.5cqw)}}
+.screen{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 28%,#2b3c78,#131a35 48%,#06070e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2cqw}
+.isl{position:absolute;top:1.1cqw;left:50%;width:6cqw;height:1.7cqw;margin-left:-3cqw;border-radius:1cqw;background:#000}
+.lgw{position:relative;display:grid;place-items:center;margin-top:-6cqw}
+.screen .lg{width:10cqw}
+.pr{position:absolute;left:50%;top:50%;width:14cqw;height:14cqw;margin:-7cqw 0 0 -7cqw;border:.12cqw dashed #8FA9E2;border-radius:50%;opacity:.5;animation:sp 14s linear infinite}
+.pr.b{width:19cqw;height:19cqw;margin:-9.5cqw 0 0 -9.5cqw;animation-direction:reverse;opacity:.28}
+.pl{font-size:2.4cqw;font-weight:200;letter-spacing:.32em;padding-left:.32em;color:#ececf0}
+.pt{font-size:1.2cqw;color:rgba(236,236,240,.6)}
+.psb{position:absolute;bottom:5cqw;left:2cqw;right:2cqw;height:3.6cqw;border-radius:2cqw;background:rgba(255,255,255,.08);border:1px solid rgba(138,180,248,.7);font-size:1.3cqw;color:rgba(236,236,240,.85);display:flex;align-items:center;padding:0 1.6cqw;gap:.6cqw}
+.hi{position:absolute;bottom:1.3cqw;left:50%;width:7cqw;height:.45cqw;margin-left:-3.5cqw;border-radius:1cqw;background:rgba(255,255,255,.55)}
+.fc{position:absolute;padding:1.2cqw 1.8cqw;border-radius:1.8cqw;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(14px);color:#ececf0;font-size:1.5cqw;white-space:nowrap;opacity:0;box-shadow:0 2cqw 5cqw rgba(0,0,0,.35)}
+.scn.on .fc{animation:cin .9s var(--ease) var(--d) both,bob 3s ease-in-out calc(var(--d) + .9s) infinite alternate}
+#wipe{position:absolute;inset:0;z-index:8;pointer-events:none;background:var(--ac);clip-path:circle(0 at 50% 55%)}
+#prog{position:absolute;left:0;bottom:0;height:.7cqw;width:100%;background:rgba(255,255,255,.1);cursor:pointer;z-index:9}
+#prog i{display:block;height:100%;width:0;background:var(--ac);transition:background .5s}
+@media(prefers-reduced-motion:reduce){.blob{animation:none}}
+</style>
+</head>
+<body>
+<div id="stage">
+<div class="blob b1"></div><div class="blob b2"></div><canvas id="pc"></canvas><div class="orb"></div><div class="orb o2"></div>
+
+<!-- 0-4 -->
+<section class="scn" data-s="0" data-e="4">
+ <svg class="lg l1" viewBox="320 730 550 580" xmlns="http://www.w3.org/2000/svg"><path style="--i:0" fill="#8FA9E2" d="M756.337 1009.76C768.7 960.853 759.702 907.754 738.292 862.697C735.031 865.391 731.669 868.493 728.484 871.318C702.5 892.103 675.579 916.436 649.869 938.003C637.987 947.97 611.385 969.624 601.874 979.351C583.194 993.208 554.207 1019.58 535.877 1035.24L412.164 1140.68C421.882 1147.52 430.684 1153.26 441.42 1158.48C477.073 1175.61 506.01 1182.03 545.489 1182.22C566.848 1164.94 588.116 1147.54 609.291 1130.04C644.226 1103.62 677.827 1073 712.49 1045.94C726.749 1034.8 742.989 1021.76 756.337 1009.76Z"/><path style="--i:1" fill="#C4D6FE" d="M572.899 1133.4C536.943 1137.32 472.712 1142.31 441.42 1158.48C477.073 1175.61 506.01 1182.03 545.489 1182.22C566.848 1164.94 588.116 1147.54 609.291 1130.04C605.125 1129.36 589.579 1131.32 579.604 1132.58C576.806 1132.93 574.447 1133.23 572.899 1133.4Z"/><path style="--i:2" fill="#6C7FA8" d="M711.154 895.352C716.1 889.009 725.046 878.177 728.484 871.318C702.5 892.103 675.579 916.436 649.869 938.003C637.987 947.97 611.385 969.624 601.874 979.351C641.463 968.9 686.46 927.02 711.154 895.352Z"/><path style="--i:3" fill="#6C7FA8" d="M429.554 771.125C401.437 787.642 363.354 821.874 349.921 851.988C347.855 854.822 343.126 863.643 341.598 866.928C315.233 923.627 313.936 979.385 333.799 1037.64L648.969 768.974C635.431 761.775 625.449 757.502 611.054 752.183C595.537 748.122 581.454 744.395 565.463 742.491C518.267 737.334 470.657 747.365 429.554 771.125Z"/><path style="--i:4" fill="#495D84" d="M429.554 771.125C401.437 787.642 363.354 821.874 349.921 851.988C352.011 850.367 356.075 845.263 358.334 842.83C365.496 835.119 374.178 826.718 383.304 821.346C421.535 798.842 470.555 796.831 513.371 787.775C551.903 779.625 577.361 771.403 611.054 752.183C595.537 748.122 581.454 744.395 565.463 742.491C518.267 737.334 470.657 747.365 429.554 771.125Z"/><path style="--i:5" fill="#8FA9E2" d="M772.74 1111.43C731.416 1145.1 689.526 1180.07 647.929 1213.23C668.979 1221.64 694.806 1231.15 715.216 1240.13C749.985 1253.73 784.626 1268.06 819.409 1281.45L856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6C819.266 1212.51 808.021 1188.95 798.858 1169.11C792.423 1154.3 780.115 1125.12 772.74 1111.43Z"/><path style="--i:6" fill="#6C7FA8" d="M827.564 1232.6C819.266 1212.51 808.021 1188.95 798.858 1169.11C787.144 1198.11 763.448 1211.78 737.71 1227.25C732.627 1230.3 720.203 1238.63 715.216 1240.13C749.985 1253.73 784.626 1268.06 819.409 1281.45L856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6Z"/><path style="--i:7" fill="#495D84" d="M856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6C827.867 1243.44 828.694 1274.99 819.409 1281.45L856.433 1296.44Z"/></svg>
+ <div class="logo">FIXING</div>
+ <div class="tag a" style="--d:1.6s">Aramanın yeni hâli.</div>
+ <i class="ring" style="--d:.2s"></i><i class="ring" style="--d:1.2s"></i><i class="ring" style="--d:2.2s"></i>
+ <span class="chip" style="--d:1.4s;left:16%;top:30%">⚡ Hızlı</span><span class="chip" style="--d:1.8s;right:16%;top:36%">🛡️ Güvenli</span><span class="chip" style="--d:2.2s;left:22%;top:68%">✦ Akıllı</span><span class="chip" style="--d:2.6s;right:20%;top:70%">◐ Sade</span>
+</section>
+
+<!-- 4-10 -->
+<section class="scn" data-s="4" data-e="10">
+ <h2 class="a">Yaz. <em>Anında</em> bul.</h2>
+ <span class="chip" style="--d:1s;left:5%;top:28%">🔎 hava durumu</span><span class="chip" style="--d:1.5s;right:5%;top:36%">📰 son haberler</span><span class="chip" style="--d:2s;left:6%;top:68%">🎬 film önerileri</span><span class="chip" style="--d:2.5s;right:6%;top:76%">⚽ maç sonuçları</span>
+ <div class="bar a" style="--d:.3s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="ty" data-full="yapay zeka nedir" data-t0="5" data-cps="12"></span><span class="caret"></span></div>
+ <div class="res">
+  <div class="card a" style="--d:2.4s"><div class="u">ornek.com/rehber</div><div class="t">Yapay Zekâ Nedir? Başlangıç Rehberi</div><div class="d">Temel kavramlar ve günlük hayattaki örnekler.</div></div>
+  <div class="card a" style="--d:2.7s"><div class="u">ornek.org/teknoloji</div><div class="t">Yapay Zekâ Nasıl Çalışır?</div><div class="d">Modeller, veri ve öğrenme süreci sade anlatımla.</div></div>
+  <div class="card a" style="--d:3s"><div class="u">ornek.net/gelecek</div><div class="t">Yapay Zekânın Geleceği</div><div class="d">Önümüzdeki yıllarda bizi neler bekliyor?</div></div>
+ </div>
+</section>
+
+<!-- 10-15 -->
+<section class="scn" data-s="10" data-e="15">
+ <h2 class="a"><em>Fix AI</em> ve Wikipedia, tek ekranda.</h2>
+ <i class="ring" style="--d:0s"></i><i class="ring" style="--d:1.5s"></i>
+ <span class="chip" style="--d:1.6s;left:12%;top:76%">🤖 Fix AI yanıtı</span><span class="chip" style="--d:2s;right:12%;top:76%">📖 Wikipedia paneli</span>
+ <div class="two">
+  <div class="card a" style="--d:.4s"><span class="badge">Fix AI</span><br><span class="ty" data-full="Yapay zekâ, makinelerin öğrenme ve karar verme gibi insana özgü becerileri taklit etmesidir. Başlamak için aşağıdaki rehberi inceleyebilirsin." data-t0="10.9" data-cps="34"></span></div>
+  <div class="card a" style="--d:1s"><span class="badge">Wikipedia</span><div class="wt">Yapay zekâ</div><span class="ty" data-full="Yapay zekâ, bilgisayar sistemlerinin öğrenme, akıl yürütme ve problem çözme gibi görevleri yerine getirebilmesini sağlayan bilim dalıdır. Alan 1950'li yıllarda doğmuştur." data-t0="11.6" data-cps="38"></span></div>
+ </div>
+</section>
+
+<!-- 15-20 -->
+<section class="scn" data-s="15" data-e="20">
+ <h2 class="a">Her sonuçta <em>güvenlik puanı.</em></h2>
+ <i class="ring" style="--d:0s"></i><i class="ring" style="--d:1s"></i><i class="ring" style="--d:2s"></i>
+ <span class="chip" style="--d:2.2s;left:8%;top:76%">🛡️ Qono Secure</span><span class="chip" style="--d:2.6s;right:8%;top:76%">⚠️ Güvensiz site uyarısı</span>
+ <div class="sec">
+  <div class="card g a" style="--d:.4s"><div class="s"><svg viewBox="0 0 24 24" fill="#4ade8022" stroke="#4ade80" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>%<span class="cnt" data-t0="15.5" data-to="100">0</span> Qono Secure</div><div class="ok">✓ Onaylı</div><div class="d" style="margin-top:.8cqw">Doğrulanmış, tamamen güvenli.</div></div>
+  <div class="card y a" style="--d:1.1s"><div class="s"><svg viewBox="0 0 24 24" fill="#facc1522" stroke="#facc15" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>%<span class="cnt" data-t0="16.2" data-to="72">0</span> Güvenli</div><div class="d">Genel kontrolden geçti.</div></div>
+  <div class="card r a" style="--d:1.8s"><div class="s"><svg viewBox="0 0 24 24" fill="#f8717122" stroke="#f87171" stroke-width="2.2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>%0 Güvensiz</div><div class="d">Tıklayınca seni uyarır.</div></div>
+ </div>
+</section>
+
+<!-- 20-25 -->
+<section class="scn" data-s="20" data-e="24.7">
+ <h2 class="a">Senin tarzın. <em>Senin renklerin.</em></h2>
+ <span class="chip" style="--d:.8s;left:8%;top:30%">🌙 Koyu mod</span><span class="chip" style="--d:1.2s;right:8%;top:30%">☀️ Açık mod</span><span class="chip" style="--d:1.6s;left:9%;top:68%">⚡ Anlık arama</span>
+ <div class="dots a" style="--d:.3s"><i style="--c:#8ab4f8"></i><i style="--c:#ff7a7a"></i><i style="--c:#6ee7a0"></i><i style="--c:#c4a1ff"></i><i style="--c:#f5c96a"></i></div>
+ <div class="card a" style="--d:.6s;width:46cqw"><div class="u">fixing.tr</div><div class="t">Fixing'de ara</div><div class="d">Açık mod, koyu mod, anlık arama…</div></div>
+ <div class="sw a" style="--d:.9s"><span class="tag">Koyu</span><div class="tog"></div><span class="tag">Açık</span></div>
+</section>
+
+<!-- 25-27.5 -->
+<!-- 27.5-30 -->
+<section class="scn row" data-s="24.7" data-e="30.6">
+ <div class="lt"><h2 class="a" style="text-align:left;font-size:5.4cqw;--d:.5s">Hepsi<br><em>Fixing'de.</em></h2><div class="tag a" style="--d:1s">Aramanın yeni hâli.</div><div class="cta">fixing.tr</div></div>
+ <div class="phw">
+  <div class="phone"><div class="screen"><div class="isl"></div>
+   <div class="lgw"><i class="pr"></i><i class="pr b"></i><svg class="lg l2" viewBox="320 730 550 580" xmlns="http://www.w3.org/2000/svg"><path style="--i:0" fill="#8FA9E2" d="M756.337 1009.76C768.7 960.853 759.702 907.754 738.292 862.697C735.031 865.391 731.669 868.493 728.484 871.318C702.5 892.103 675.579 916.436 649.869 938.003C637.987 947.97 611.385 969.624 601.874 979.351C583.194 993.208 554.207 1019.58 535.877 1035.24L412.164 1140.68C421.882 1147.52 430.684 1153.26 441.42 1158.48C477.073 1175.61 506.01 1182.03 545.489 1182.22C566.848 1164.94 588.116 1147.54 609.291 1130.04C644.226 1103.62 677.827 1073 712.49 1045.94C726.749 1034.8 742.989 1021.76 756.337 1009.76Z"/><path style="--i:1" fill="#C4D6FE" d="M572.899 1133.4C536.943 1137.32 472.712 1142.31 441.42 1158.48C477.073 1175.61 506.01 1182.03 545.489 1182.22C566.848 1164.94 588.116 1147.54 609.291 1130.04C605.125 1129.36 589.579 1131.32 579.604 1132.58C576.806 1132.93 574.447 1133.23 572.899 1133.4Z"/><path style="--i:2" fill="#6C7FA8" d="M711.154 895.352C716.1 889.009 725.046 878.177 728.484 871.318C702.5 892.103 675.579 916.436 649.869 938.003C637.987 947.97 611.385 969.624 601.874 979.351C641.463 968.9 686.46 927.02 711.154 895.352Z"/><path style="--i:3" fill="#6C7FA8" d="M429.554 771.125C401.437 787.642 363.354 821.874 349.921 851.988C347.855 854.822 343.126 863.643 341.598 866.928C315.233 923.627 313.936 979.385 333.799 1037.64L648.969 768.974C635.431 761.775 625.449 757.502 611.054 752.183C595.537 748.122 581.454 744.395 565.463 742.491C518.267 737.334 470.657 747.365 429.554 771.125Z"/><path style="--i:4" fill="#495D84" d="M429.554 771.125C401.437 787.642 363.354 821.874 349.921 851.988C352.011 850.367 356.075 845.263 358.334 842.83C365.496 835.119 374.178 826.718 383.304 821.346C421.535 798.842 470.555 796.831 513.371 787.775C551.903 779.625 577.361 771.403 611.054 752.183C595.537 748.122 581.454 744.395 565.463 742.491C518.267 737.334 470.657 747.365 429.554 771.125Z"/><path style="--i:5" fill="#8FA9E2" d="M772.74 1111.43C731.416 1145.1 689.526 1180.07 647.929 1213.23C668.979 1221.64 694.806 1231.15 715.216 1240.13C749.985 1253.73 784.626 1268.06 819.409 1281.45L856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6C819.266 1212.51 808.021 1188.95 798.858 1169.11C792.423 1154.3 780.115 1125.12 772.74 1111.43Z"/><path style="--i:6" fill="#6C7FA8" d="M827.564 1232.6C819.266 1212.51 808.021 1188.95 798.858 1169.11C787.144 1198.11 763.448 1211.78 737.71 1227.25C732.627 1230.3 720.203 1238.63 715.216 1240.13C749.985 1253.73 784.626 1268.06 819.409 1281.45L856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6Z"/><path style="--i:7" fill="#495D84" d="M856.433 1296.44C848.099 1276.23 836.772 1252.56 827.564 1232.6C827.867 1243.44 828.694 1274.99 819.409 1281.45L856.433 1296.44Z"/></svg></div>
+   <div class="pl a" style="--d:1.2s">FIXING</div><div class="pt a" style="--d:1.6s">Aramanın yeni hâli.</div>
+   <div class="psb a" style="--d:1.8s">🔎 <span class="ty" data-full="Fixing'de ara" data-t0="27.3" data-cps="8"></span><span class="caret"></span></div><div class="hi"></div>
+  </div></div>
+  <div class="fc" style="--d:1.6s;right:-15cqw;top:6cqw;border-color:#4ade80">🛡️ %100 Qono Secure</div>
+  <div class="fc" style="--d:2.1s;right:-12cqw;top:24cqw">✦ Fix AI</div>
+  <div class="fc" style="--d:2.6s;right:-14cqw;top:36cqw">📖 Wikipedia</div>
+  <div class="fc" style="--d:3s;left:-8cqw;top:30cqw">🔎 Fixing'de ara</div>
+ </div>
+</section>
+<div id="wipe"></div>
+<div class="tick">HIZLI • GÜVENLİ • AKİLLI • SADE • HIZLI • GÜVENLİ • AKİLLI • SADE • HIZLI • GÜVENLİ • AKİLLI • SADE • HIZLI • GÜVENLİ • AKİLLI • SADE • </div>
+<div id="prog"><i></i></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),scs=[...document.querySelectorAll('.scn')],st=$('#stage');
+const cols=['#8ab4f8','#ff7a7a','#6ee7a0','#c4a1ff','#f5c96a'];
+const tys=[...document.querySelectorAll('.ty')],cnts=[...document.querySelectorAll('.cnt')],dots=[...document.querySelectorAll('.dots i')];
+const wipe=$('#wipe');
+let start=performance.now(),T=0,done=false,curCol='#8ab4f8';
+const pc=$('#pc'),px=pc.getContext('2d');
+const P=Array.from({length:46},()=>({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.0006,vy:(Math.random()-.5)*.0006,r:Math.random()*2+1}));
+function draw(){const w=pc.width=st.clientWidth,h=pc.height=st.clientHeight;px.clearRect(0,0,w,h);px.fillStyle=px.strokeStyle=curCol;
+ P.forEach(p=>{p.x=(p.x+p.vx+1)%1;p.y=(p.y+p.vy+1)%1});
+ P.forEach((p,i)=>{px.globalAlpha=.5;px.beginPath();px.arc(p.x*w,p.y*h,p.r*w/700,0,7);px.fill();
+  for(let j=i+1;j<P.length;j++){const q=P[j],d=Math.hypot((p.x-q.x)*w,(p.y-q.y)*h);if(d<w*.13){px.globalAlpha=.2*(1-d/(w*.13));px.beginPath();px.moveTo(p.x*w,p.y*h);px.lineTo(q.x*w,q.y*h);px.stroke()}}})}
+function render(){
+ scs.forEach(s=>s.classList.toggle('on',T>=+s.dataset.s&&T<+s.dataset.e));
+ tys.forEach(e=>{const n=Math.max(0,Math.floor((T-+e.dataset.t0)*+e.dataset.cps));e.textContent=e.dataset.full.slice(0,n)});
+ cnts.forEach(e=>{const p=Math.min(1,Math.max(0,(T-+e.dataset.t0)/1.2));e.textContent=Math.round(+e.dataset.to*(1-Math.pow(1-p,3)))});
+ const i=T>=20.4&&T<24.7?Math.min(4,Math.floor((T-20.4)/.8)):0;
+ st.style.setProperty('--ac',cols[i]);curCol=cols[i];
+ dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+ st.classList.toggle('light',T>=23.9&&T<24.7);
+ const wp=T>=24.1?Math.min(1,(T-24.1)/.6):0;wipe.style.clipPath=`circle(${wp*85}% at 50% 55%)`;wipe.style.opacity=T<24.7?1:Math.max(0,1-(T-24.7)/.8);
+ $('#prog i').style.width=(T/30*100)+'%';
+}
+function loop(now){
+ if(!done){T=(now-start)/1000;if(T>=30){T=30;done=true}}
+ render();draw();requestAnimationFrame(loop)
+}
+$('#prog').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();T=(e.clientX-r.left)/r.width*30;start=performance.now()-T*1000;done=false};
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
